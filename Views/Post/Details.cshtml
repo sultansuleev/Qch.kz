@@ -1,0 +1,79 @@
+﻿@using ForumProject.ViewModels.Post
+@model PostDetailsViewModel
+
+<div class="pt-4">
+
+    @if (User.IsInRole("moderator") || User.IsInRole("ADMIN"))
+    {
+        <form method="post">
+            <input type="submit" value="Delete the post"
+                   asp-controller="Post" asp-action="Delete" asp-route-id="@Model.Id"
+                   class="btn btn-outline-danger"/>
+        </form>
+
+        <a asp-controller="Post" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary">
+            Edit the post
+        </a>
+    }
+
+    @if (Model.IsEditedByModerator)
+    {
+        <p style="color: green;">The post was edited by moderator</p>
+    }
+
+    <h1>@Model.Title</h1>
+
+    <p>Created by @Model.AuthorName</p>
+    <p>on @Model.Created</p>
+
+    <div>
+        @Model.Content
+    </div>
+    <hr>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="addCommentContainer">
+            @await Html.PartialAsync("~/Views/Comment/_AddComment.cshtml",
+                new ForumProject.ViewModels.Comment.CommentCreateViewModel(),
+                new ViewDataDictionary(ViewData)
+                {
+                    {"postId", Model.Id}
+                })
+        </div>
+    }
+    else
+    {
+        <p style="color: red;">You have to login to leave the comment!</p>
+    }
+
+    <div class="list-group pt-3">
+        @if (Model.Comments.Any())
+        {
+            @foreach (var comment in Model.Comments)
+            {
+                <div class="list-group-item mb-4">
+                    <p>Commented by <strong>@comment.AuthorName</strong> </p>
+                    <p>on @comment.Created</p>
+                    <div>
+                        @comment.Content
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <h3>There are no comments</h3>
+        }
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/comment.js"></script>
+    <script>
+        var urls =
+        {
+            updatePage: "@Url.Action("Details", "Post", new {id = Model.Id})"
+        };
+    </script>
+}

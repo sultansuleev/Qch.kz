@@ -1,0 +1,128 @@
+﻿* {
+    font-family: Raleway, 'sans-serif';
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+.container .nav-item:hover {
+    background-color: #34495e!important;
+    cursor: pointer;
+}
+
+.container .nav-item a {
+    color: white!important;
+}
+
+.container .nav-item a:hover{
+    color: #ffffff!important;
+}
+
+a {
+    color: #000000;
+}
+/* Provide sufficient contrast against white background */
+a:hover {
+    color: #ed8bf8;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    transition: 1s ease;
+}
+
+.dropdown-menu {
+    background-color: #34495e!important;
+}
+
+.dropdown-menu a:hover {
+    color: #ffffff!important;
+    background-color: #476288 !important;
+}
+
+nav {
+    background-color:#2c3e50;
+}
+
+.nav-item .dropdown-item{
+    color: #ffffff;!important;
+    background-color: #34495e!important;
+}
+
+.nav-item .dropdown-item:hover{
+    color: #ffffff;!important;
+    background-color: #476288 !important;
+}
+
+.logo-brando {
+    font-size: 30px;
+    font-weight: bold;
+    color: white!important;
+    transition: 1s ease;
+}
+
+.logo-brando:hover {
+    background-color: #34495e!important;
+    cursor: pointer;
+}
